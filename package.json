@@ -1,0 +1,37 @@
+{
+  "name": "electron-babylon-typescript-template",
+  "version": "1.0.0",
+  "description": "A template project for Electron based Babylon.js projects with TypeScript",
+  "author": "Rabi Róbert <ingenmaffen@gmail.com>",
+  "main": "out/electron/main.js",
+  "scripts": {
+    "electron-build": "npx tsc --project tsconfig.json",
+    "game-build": "webpack --mode=production",
+    "game-build-watch": "webpack --mode=development --watch --progress",
+    "start": "npm run electron-build && npm run game-build && electron .",
+    "watch": "npm run electron-build && electron . & npm run game-build-watch",
+    "clean": "rm -rf out",
+    "prebuild": "npm run clean && npm run electron-build && npm run game-build",
+    "build": "electron-builder build"
+  },
+  "devDependencies": {
+    "babylonjs": "^5.12.1",
+    "electron": "^19.0.6",
+    "electron-builder": "^23.1.0",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "build": {
+    "appId": "electron-babylon-typescript-template",
+    "linux": {
+      "target": [
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "portable"
+    }
+  }
+}
