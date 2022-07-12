@@ -27,7 +27,7 @@
     "appId": "electron-babylon-typescript-template",
     "linux": {
       "target": [
-        "deb"
+        "deb", "AppImage"
       ]
     },
     "win": {
